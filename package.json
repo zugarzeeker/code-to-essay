@@ -4,7 +4,7 @@
   "description": "The library essay is a code generator from a readme file but this library is a reverse operation.",
   "main": "lib/main.js",
   "bin": {
-    "c2e build": "./lib/main.js"
+    "c2e": "./lib/main.js"
   },
   "scripts": {
     "prepublish": "essay build",
@@ -16,6 +16,7 @@
     "url": "git+https://github.com/zugarzeeker/code-to-essay.git"
   },
   "keywords": [
+    "code-to-essay",
     "document",
     "readme",
     "essay"
@@ -33,5 +34,7 @@
   "devDependencies": {
     "essay": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-runtime": "^6.11.6"
+  }
 }

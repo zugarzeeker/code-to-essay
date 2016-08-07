@@ -19,7 +19,7 @@ I used `eassy` and made a simple project that can generate many code files of ja
 
   3. Convert them with command
   ```
-  c2e build
+  c2e
   ```
 
   4. Setting your project follow `essay` format ([https://github.com/dtinth/essay](https://github.com/dtinth/essay))
@@ -41,7 +41,7 @@ const README = getTextFromFile(`./README.md`)
 const lines = README.split('\n')
 const newContexts = convertLinesToContexts(lines)
 const newDocs = newContexts.join('\n')
-writeFileFromText(newDocs)
+writeFileFromText(newDocs, './README.md')
 ```
 
 `converter.js` is a module that contains
@@ -64,7 +64,7 @@ const convertCodeToContext = (line) => {
   const code = getTextFromFile(pathname)
   const end = "\`\`\`"
   const start = end + 'js'
-  const context = start + header + code + end
+  const context = [start, header, code, end].join('\n')
   return context
 }
 
@@ -93,10 +93,12 @@ import { readFileSync, writeFileSync } from 'fs'
 const projectPath = resolve()
 
 export const getTextFromFile = (pathname) => {
+  console.log("%s %s", "Reading", pathname)
   return readFileSync(join(projectPath, pathname), 'utf-8')
 }
 
-export const writeFileFromText = async (text, pathname) => {
-  return await writeFileSync(join(projectPath, pathname || '.'), text, 'utf-8')
+export const writeFileFromText = (text, pathname) => {
+  console.log("%s %s", "Writing", pathname)
+  return writeFileSync(join(projectPath, pathname), text, 'utf-8')
 }
 ```
