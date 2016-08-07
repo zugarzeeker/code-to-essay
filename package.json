@@ -1,0 +1,33 @@
+{
+  "name": "code-to-essay",
+  "version": "1.0.0",
+  "description": "The library essay is a code generator from a readme file but this library is a reverse operation.",
+  "main": "lib/main.js",
+  "scripts": {
+    "prepublish": "essay build",
+    "test": "essay test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zugarzeeker/code-to-essay.git"
+  },
+  "keywords": [
+    "document",
+    "readme",
+    "essay"
+  ],
+  "files": [
+    "lib",
+    "src"
+  ],
+  "author": "Supanut Apikulvanich <supanut.overload@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zugarzeeker/code-to-essay/issues"
+  },
+  "homepage": "https://github.com/zugarzeeker/code-to-essay#readme",
+  "devDependencies": {
+    "essay": "^3.0.1"
+  },
+  "dependencies": {}
+}
