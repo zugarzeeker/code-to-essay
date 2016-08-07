@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "The library essay is a code generator from a readme file but this library is a reverse operation.",
   "main": "lib/main.js",
+  "bin": {
+    "c2e build": "./lib/main.js"
+  },
   "scripts": {
     "prepublish": "essay build",
-    "test": "essay test"
+    "test": "essay test",
+    "start": "./lib/main.js"
   },
   "repository": {
     "type": "git",

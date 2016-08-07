@@ -34,6 +34,7 @@ I used `eassy` and made a simple project that can generate many code files of ja
 
 ```js
 // main.js
+#!/usr/bin/env node
 import { getTextFromFile, writeFileFromText } from './file'
 import { convertLinesToContexts } from './converter'
 const README = getTextFromFile(`./README.md`)
