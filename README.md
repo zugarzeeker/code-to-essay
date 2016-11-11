@@ -1,4 +1,16 @@
 # code-to-essay
+
+[![NPM version][npm-svg]][npm]
+[![Build status][travis-svg]][travis]
+[![Code coverage][codecov-svg]][codecov]
+
+[travis]: https://travis-ci.org/zugarzeeker/code-to-essay
+[travis-svg]: https://img.shields.io/travis/zugarzeeker/code-to-essay.svg?style=flat
+[npm]: https://www.npmjs.com/package/code-to-essay
+[npm-svg]: https://img.shields.io/npm/v/code-to-essay.svg?style=flat
+[codecov]: https://codecov.io/gh/zugarzeeker/code-to-essay/src/master/README.md
+[codecov-svg]: https://img.shields.io/codecov/c/github/zugarzeeker/code-to-essay.svg
+
 The library essay is a code generator from a readme file but this library is a reverse operation.
 
 ## Inspiration
