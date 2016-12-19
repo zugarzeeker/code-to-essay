@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/zugarzeeker/code-to-essay#readme",
   "devDependencies": {
-    "assay": "^1.0.0",
     "chai": "^3.5.0",
     "essay": "^3.0.1",
     "mocha": "^3.1.2"

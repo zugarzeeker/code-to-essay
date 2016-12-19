@@ -109,23 +109,21 @@ import { expect } from 'chai'
 import { convertLineToContext, convertLinesToContexts } from './converter';
 import { getTextFromFile } from './file'
 
-describe('test converter', () => {
-  it('Should convert readme to code', () => {
-    const README = getTextFromFile(`./README.md`)
-    const lines = README.split('\n')
+it('should convert file that matched text to code', () => {
+  const example = getTextFromFile(`./example.md`)
+  const lines = example.split('\n')
 
-    expect(convertLinesToContexts(lines)).is.an('array')
-  })
-  
-  it('Should convert line to context if line has c2e:', () => {
-    const line = 'c2e:src/main.js';
-    expect(convertLineToContext(line).indexOf(getTextFromFile('src/main.js'))).to.not.equal(0)
-  })
-  
-  it('Should return same text if line not have c2e:', () => {
-    const line = '3. Convert them with command';
-    expect(convertLineToContext(line)).to.equal(line)
-  })
+  expect(convertLinesToContexts(lines)).is.an('array')
+})
+
+it('should convert line to context if it matches code-to-essay template', () => {
+  const line = 'c2e:src/main.js';
+  expect(convertLineToContext(line).indexOf(getTextFromFile('src/main.js'))).to.not.equal(0)
+})
+
+it('should return same text if it doesn\'t matches code-to-essay template', () => {
+  const line = '3. Convert them with command';
+  expect(convertLineToContext(line)).to.equal(line)
 })
 ```
 
@@ -134,20 +132,18 @@ describe('test converter', () => {
 import { expect } from 'chai'
 import { getTextFromFile, writeFileFromText } from './file'
 
-describe('test file', () => {
-  it('Should return text of file', () => {
-    const path = 'README.md'
-    expect(getTextFromFile(path)).to.be.a('string')
-  })
+it('should return text of file', () => {
+  const path = 'example.md'
+  expect(getTextFromFile(path)).to.be.a('string')
+})
+
+it('should write file from text', () => {
+  const text = 'test';
+  const path = './src/main.js'
+  const backupText = getTextFromFile(path)
   
-  it('Should write file', () => {
-    const text = 'test';
-    const path = './src/main.js'
-    const backupText = getTextFromFile(path)
-    
-    writeFileFromText(text, path);
-    expect(getTextFromFile(path)).to.equal(text)
-    writeFileFromText(backupText, path)  
-  })
+  writeFileFromText(text, path);
+  expect(getTextFromFile(path)).to.equal(text)
+  writeFileFromText(backupText, path)  
 })
 ```
