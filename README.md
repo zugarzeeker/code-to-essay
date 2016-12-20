@@ -80,7 +80,7 @@ const convertCodeToContext = (line) => {
   return context
 }
 
-const convertLineToContext = (line) => {
+export const convertLineToContext = (line) => {
   return isCode(line) ? convertCodeToContext(line) : line
 }
 
@@ -113,4 +113,49 @@ export const writeFileFromText = (text, pathname) => {
   console.log("%s %s", "Writing", pathname)
   return writeFileSync(join(projectPath, pathname), text, 'utf-8')
 }
+```
+
+```js
+// converter.test.js
+import { expect } from 'chai'
+import { convertLineToContext, convertLinesToContexts } from './converter';
+import { getTextFromFile } from './file'
+
+it('should convert file that matched text to code', () => {
+  const example = getTextFromFile(`./example.md`)
+  const lines = example.split('\n')
+
+  expect(convertLinesToContexts(lines)).is.an('array')
+})
+
+it('should convert line to context if it matches code-to-essay template', () => {
+  const line = 'c2e:src/main.js';
+  expect(convertLineToContext(line).indexOf(getTextFromFile('src/main.js'))).to.not.equal(0)
+})
+
+it('should return same text if it doesn\'t matches code-to-essay template', () => {
+  const line = '3. Convert them with command';
+  expect(convertLineToContext(line)).to.equal(line)
+})
+```
+
+```js
+// file.test.js
+import { expect } from 'chai'
+import { getTextFromFile, writeFileFromText } from './file'
+
+it('should return text of file', () => {
+  const path = 'example.md'
+  expect(getTextFromFile(path)).to.be.a('string')
+})
+
+it('should write file from text', () => {
+  const text = 'test';
+  const path = './src/main.js'
+  const backupText = getTextFromFile(path)
+  
+  writeFileFromText(text, path);
+  expect(getTextFromFile(path)).to.equal(text)
+  writeFileFromText(backupText, path)  
+})
 ```

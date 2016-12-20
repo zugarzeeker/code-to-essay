@@ -32,7 +32,9 @@
   },
   "homepage": "https://github.com/zugarzeeker/code-to-essay#readme",
   "devDependencies": {
-    "essay": "^3.0.1"
+    "chai": "^3.5.0",
+    "essay": "^3.0.1",
+    "mocha": "^3.1.2"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6"
