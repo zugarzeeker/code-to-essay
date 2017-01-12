@@ -1,6 +1,6 @@
 {
   "name": "code-to-essay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The library essay is a code generator from a readme file but this library is a reverse operation.",
   "main": "lib/main.js",
   "bin": {
