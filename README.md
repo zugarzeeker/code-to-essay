@@ -11,7 +11,7 @@
 [codecov]: https://codecov.io/gh/zugarzeeker/code-to-essay/src/master/README.md
 [codecov-svg]: https://img.shields.io/codecov/c/github/zugarzeeker/code-to-essay.svg
 
-The library essay is a code generator from a readme file but this library is a reverse operation.
+The library "essay" is a code generator from a readme file, but this library is a reverse operation.
 
 ## Inspiration
 I used `essay` and made a simple project that can generate many code files of javascript (ES7). That can create a good document because you can update code and docs in the same time. I would like to create a converter from code files structure into readme. It will be also created by `essay` after convert them.
